@@ -15,8 +15,14 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
 
     private GameObject bulletInstance;
+
+    [SerializeField] private GameObject muzzle;
     
     private bool isFlipped = false ;
+
+    private Vector3 offsetGun = new Vector3(0.3f, -0.25f, 0);
+    private Vector3 offsetGunFlipped = new Vector3(-0.3f, -0.25f, 0);
+
 
     [SerializeField] private List<AudioClip> sound = new List<AudioClip>();
     [SerializeField] private float volume;
@@ -46,16 +52,27 @@ public class ShooterManager : MonoBehaviour
         transform.parent.GetComponent<SpriteRenderer>().flipX = isFlipped;
         transform.GetComponent<SpriteRenderer>().flipY = isFlipped;
 
+
+
         if (isFlipped)
-            transform.position = new Vector2(-0.3f, -0.25f);
+        {
+            transform.position = transform.parent.position + offsetGunFlipped;
+            transform.GetChild(0).localPosition = new Vector3(0.36f, -0.053f, 0);
+        }
         else
-            transform.position = new Vector2(0.3f, -0.25f);
+        {
+            transform.position = transform.parent.position + offsetGun;
+            transform.GetChild(0).localPosition = new Vector3(0.36f, 0.053f, 0);
+        }
 
         rechargeTime += Time.deltaTime;
         if (Input.GetMouseButtonDown(0) && rechargeTime >= fireSpeed)
         {
-            Instantiate(particlePrefab, this.transform.position, this.transform.rotation);
-            bulletInstance = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
+            Instantiate(particlePrefab, muzzle.transform.position, this.transform.rotation);
+
+            bulletInstance = Instantiate(bulletPrefab, muzzle.transform.position, this.transform.rotation);
+
+
             bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
             //SoundManager.Instance.PlaySoundInList(sound, volume);
             rechargeTime = 0;
