@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShooterManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class ShooterManager : MonoBehaviour
     private Transform player;
     private Camera camera;
     [SerializeField] GameObject bulletPrefab;
+
+    private GameObject bulletInstance;
     
     private bool isFlipped = false ;
 
@@ -46,12 +49,13 @@ public class ShooterManager : MonoBehaviour
             transform.position = new Vector2(0.3f, -0.25f);
 
         rechargeTime += Time.deltaTime;
-        /*if (Input.GetMouseButtonDown(0) && rechargeTime >= fireSpeed)
+        if (Input.GetMouseButtonDown(0) && rechargeTime >= fireSpeed)
         {
-            Instantiate(bulletPrefab, this.transform.position + shotDirection, this.transform.rotation);
-            SoundManager.Instance.PlaySoundInList(sound, volume);
+            bulletInstance = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
+            bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
+            //SoundManager.Instance.PlaySoundInList(sound, volume);
             rechargeTime = 0;
-        }*/
+        }
     }
 }
 
