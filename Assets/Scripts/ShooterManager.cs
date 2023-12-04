@@ -54,8 +54,7 @@ public class ShooterManager : MonoBehaviour
         rechargeTime += Time.deltaTime;
         if (Input.GetMouseButtonDown(0) && rechargeTime >= fireSpeed)
         {
-            var particle = Instantiate(particlePrefab);
-            particle.transform.rotation = transform.rotation;
+            Instantiate(particlePrefab, this.transform.position, this.transform.rotation);
             bulletInstance = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
             bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
             //SoundManager.Instance.PlaySoundInList(sound, volume);
