@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     private int hp;
     public int maxHp;
 
+    public GameObject ParticlePrefab;
+
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity *= 0.90f;
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         EnemiesManager.instance.Die(gameObject);
+        Instantiate(ParticlePrefab);
         Destroy(gameObject);
     }
 
