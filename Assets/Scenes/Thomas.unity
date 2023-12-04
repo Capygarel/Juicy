@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42096deae16e39f4f8c501237fb20314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 5920146654670638239, guid: 52d624e809adedf4b8cf23e0b5e943ab, type: 3}
   fireSpeed: 0.7
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
   sound: []
   volume: 0
 --- !u!212 &286721039

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ShooterManager : MonoBehaviour
 {
+    [SerializeField] private GameObject particlePrefab;
+
+
     [SerializeField] private float fireSpeed = 0.7f;
     private float rechargeTime;
     private Transform player;
@@ -51,6 +54,8 @@ public class ShooterManager : MonoBehaviour
         rechargeTime += Time.deltaTime;
         if (Input.GetMouseButtonDown(0) && rechargeTime >= fireSpeed)
         {
+            var particle = Instantiate(particlePrefab);
+            particle.transform.rotation = transform.rotation;
             bulletInstance = Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
             bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
             //SoundManager.Instance.PlaySoundInList(sound, volume);
