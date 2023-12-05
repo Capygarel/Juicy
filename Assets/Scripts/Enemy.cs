@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private int hp;
+    public int hp;
     public int maxHp;
 
     public GameObject ParticlePrefab;
+
+    private void Start()
+    {
+        hp = maxHp;
+    }
 
     private void FixedUpdate()
     {

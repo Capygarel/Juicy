@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 541441878946527120}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +119,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.039475203, y: -0.08772266}
-  m_Size: {x: 0.72806025, y: 1.035089}
+  m_Offset: {x: 0.02516818, y: -0.07486628}
+  m_Size: {x: 0.59721804, y: 1.0465322}
   m_Direction: 0
 --- !u!50 &1449219031039635241
 Rigidbody2D:
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d810f61e1f6c54cbcd6d366147f327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1
+  maxHp: 3
   ParticlePrefab: {fileID: 6814924391225743829, guid: 4c94257bdbfc5cf44bdcf6e77cec4ff0, type: 3}
