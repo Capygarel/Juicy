@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlipped: 0
+  roundFallSound: {fileID: 8300000, guid: ec3565362dfc80e4abffbe23616a00c1, type: 3}
+  volume: 1
 --- !u!50 &9185171889320522977
 Rigidbody2D:
   serializedVersion: 4

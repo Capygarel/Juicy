@@ -27,7 +27,6 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip, float volumeScale, float pitchModifier)
     {
         float originalPitch = audioSource.pitch;
-        Debug.Log(pitchModifier);
         audioSource.pitch -= pitchModifier;
         audioSource.PlayOneShot(clip, volumeScale);
         audioSource.pitch = originalPitch;
@@ -39,12 +38,17 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(clip, volumeScale);
     }
 
-    public void PlaySoundInList(List<AudioClip> clipList, float volumeScale)
+    public void PlaySoundInList(List<AudioClip> clipList, float volumeScale, float pitchModifier)
     {
         
         int n = Random.Range(0, clipList.Count);
-        Debug.Log(clipList[n]);
+        float originalPitch = audioSource.pitch;
+
+        audioSource.pitch = pitchModifier;
+
         audioSource.PlayOneShot(clipList[n], volumeScale);
+
+        //audioSource.pitch = originalPitch;
     }
 
     //Change background music

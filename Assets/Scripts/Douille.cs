@@ -5,6 +5,10 @@ public class Douille : MonoBehaviour
 {
     Rigidbody2D rb;
     public bool isFlipped;
+    public AudioClip roundFallSound;
+
+    [SerializeField] private float volume;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,7 @@ public class Douille : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         rb.bodyType = RigidbodyType2D.Static;
+        SoundManager.Instance.PlaySound(roundFallSound, volume );
         yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }

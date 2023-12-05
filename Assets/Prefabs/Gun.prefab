@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 8973213606024091801}
   particlePrefab: {fileID: 5920146654670638239, guid: 52d624e809adedf4b8cf23e0b5e943ab, type: 3}
+  douillePrefab: {fileID: 9020926259166442895, guid: 160dacd1607a7654eb4e6992508d3dd6, type: 3}
   bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
   fireSpeed: 0.7
   gunKickbackAnimationCurve:
@@ -115,8 +116,26 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
+      time: 0.012566348
+      value: 0.98295015
+      inSlope: 4.56203
+      outSlope: 4.56203
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13921613
+    - serializedVersion: 3
+      time: 0.2
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -126,8 +145,13 @@ MonoBehaviour:
     m_PreInfinity: 0
     m_PostInfinity: 2
     m_RotationOrder: 4
-  sound: []
-  volume: 0
+  kickbackScale: 0.1
+  sound:
+  - {fileID: 8300000, guid: bf9bf6e068a69d44397e488e6228ec09, type: 3}
+  - {fileID: 8300000, guid: 155037b8504105043983ea69085f0388, type: 3}
+  - {fileID: 8300000, guid: 6c38d9e69baa24540bf7d71edb97aaf6, type: 3}
+  - {fileID: 8300000, guid: 358319ff91f31cb4d8bc3bf1293f192e, type: 3}
+  volume: 0.8
 --- !u!1 &8973213606024091801
 GameObject:
   m_ObjectHideFlags: 0

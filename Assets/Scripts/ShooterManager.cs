@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Cinemachine;
+
 
 public class ShooterManager : MonoBehaviour
 {   
@@ -29,8 +31,11 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] private float kickbackScale = 0.1f;
     private float timeKickBack = 0;
 
+    [SerializeField] CinemachineImpulseSource impulseSource;
+
+
     [SerializeField] private List<AudioClip> sound = new List<AudioClip>();
-    [SerializeField] private float volume;
+    [SerializeField] private float volumeFire, volumeReload;
 
 
 
@@ -39,7 +44,11 @@ public class ShooterManager : MonoBehaviour
     {
         player = transform.parent;
         cam = Camera.main;
-        rechargeTime = fireSpeed;
+        fireSpeed = sound[0].length + sound[1].length;
+        rechargeTime = fireSpeed ;
+
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+
     }
 
     // Update is called once per frame
@@ -68,12 +77,17 @@ public class ShooterManager : MonoBehaviour
 
         bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
 
+        ShakeManager.instance.CameraShake(impulseSource);
+
+
         //Instantie la douille
         var douille = Instantiate(douillePrefab);
         douille.transform.position = transform.position;
         douille.GetComponent<Douille>().isFlipped = isFlipped;
 
-        SoundManager.Instance.PlaySoundInList(sound, volume);
+
+        StartCoroutine(PlaySound());
+        
 
 
         rechargeTime = 0;
@@ -123,6 +137,15 @@ public class ShooterManager : MonoBehaviour
         }
     }
 
+    IEnumerator PlaySound()
+    {
+        SoundManager.Instance.PlaySound(sound[0], volumeFire, UnityEngine.Random.Range(1f, 1.5f));
+
+        yield return new WaitForSeconds(sound[0].length );
+
+        SoundManager.Instance.PlaySound(sound[1], volumeReload, 1.2f);
+    }
+
     IEnumerator KickbackAnimation()
     {
 
@@ -132,8 +155,11 @@ public class ShooterManager : MonoBehaviour
         while(timeKickBack < fireSpeed && tempIsFlipped == isFlipped) 
         {
             float speed = gunKickbackAnimationCurve.Evaluate(timeKickBack);
+
             Vector3 kickbackDirection = (muzzle.transform.position - transform.position).normalized;
 
+
+            
             transform.localPosition = (originPosGun - ( kickbackDirection * kickbackScale * speed));
 
             timeKickBack += Time.deltaTime;
