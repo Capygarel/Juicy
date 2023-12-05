@@ -3692,11 +3692,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8470181818090430706, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.029
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 8470181818090430706, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 8470181818090430706, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3736,14 +3736,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9120473596846630985, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
       propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
+      propertyPath: ShapeModule.alignToDirection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
@@ -4150,7 +4158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_ImpulseShape: 4
+    m_ImpulseShape: 1
     m_CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -4158,8 +4166,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_ImpulseDuration: 0.2
-    m_ImpulseType: 0
-    m_DissipationRate: 0.25
+    m_ImpulseType: 1
+    m_DissipationRate: 0.5
     m_RawSignal: {fileID: 0}
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
@@ -4188,7 +4196,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 1, y: -1, z: 0}
+  m_DefaultVelocity: {x: 0.1, y: -0.1, z: 0}
 --- !u!1 &1851145007
 GameObject:
   m_ObjectHideFlags: 0
@@ -4407,6 +4415,10 @@ PrefabInstance:
       propertyPath: smoke
       value: 
       objectReference: {fileID: 1556625024}
+    - target: {fileID: 6148214030257711930, guid: 4f64780c4557e2646b0770c87d3f9624, type: 3}
+      propertyPath: smokeDelay
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6148214030257711930, guid: 4f64780c4557e2646b0770c87d3f9624, type: 3}
       propertyPath: volumeFire
       value: 1
