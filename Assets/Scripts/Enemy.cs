@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         EnemiesManager.instance.Die(gameObject);
-        Instantiate(ParticlePrefab);
+        Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
