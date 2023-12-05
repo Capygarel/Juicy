@@ -11,6 +11,7 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] private GameObject muzzle;
     [SerializeField] private GameObject particlePrefab;
 
+    [SerializeField] private GameObject douillePrefab;
 
     [SerializeField] GameObject bulletPrefab;
     private GameObject bulletInstance;
@@ -67,6 +68,10 @@ public class ShooterManager : MonoBehaviour
 
         bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
 
+        //Instantie la douille
+        var douille = Instantiate(douillePrefab);
+        douille.transform.position = transform.position;
+        douille.GetComponent<Douille>().isFlipped = isFlipped;
 
         SoundManager.Instance.PlaySoundInList(sound, volume);
 
