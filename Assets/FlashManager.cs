@@ -8,7 +8,7 @@ public class FlashManager : MonoBehaviour
     public static FlashManager instance;
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private float duration = 1f;
+    [SerializeField] private float duration;
 
 
     private void Awake()
@@ -21,17 +21,17 @@ public class FlashManager : MonoBehaviour
 
     public void Flash(SpriteRenderer sprite, float duration)
     {
-        StartCoroutine(FlashCoroutine(duration));
+        StartCoroutine(FlashCoroutine(sprite ,duration));
     }
 
-    IEnumerator FlashCoroutine(float duration)
+    IEnumerator FlashCoroutine(SpriteRenderer sprite, float duration)
     {
-        Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = Color.white;
+        Color originalColor = sprite.color;
+        sprite.color = Color.red;
 
         yield return new WaitForSeconds(duration);
 
-        spriteRenderer.color = originalColor;
+        sprite.color = originalColor;
     }
 }
 

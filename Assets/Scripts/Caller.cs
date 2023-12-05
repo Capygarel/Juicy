@@ -34,7 +34,7 @@ public class Caller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 1f);
+            FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         }
 
     }
