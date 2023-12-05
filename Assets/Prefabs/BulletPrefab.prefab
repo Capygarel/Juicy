@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad288873a7842c4f8bfc8d3421034f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
   isWeaponFlipped: 0
 --- !u!96 &7015013543219681547
 TrailRenderer:

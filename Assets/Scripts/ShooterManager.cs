@@ -25,6 +25,7 @@ public class ShooterManager : MonoBehaviour
     private Vector3 offsetGun = new Vector3(0.3f, -0.25f, 0);
     private Vector3 offsetGunFlipped = new Vector3(-0.3f, -0.25f, 0);
     [SerializeField] private AnimationCurve gunKickbackAnimationCurve;
+    [SerializeField] private float kickbackScale = 0.1f;
     private float time = 0;
 
     [SerializeField] private List<AudioClip> sound = new List<AudioClip>();
@@ -55,7 +56,7 @@ public class ShooterManager : MonoBehaviour
 
     void Fire()
     {
-        //KickBack Animation
+        StartCoroutine(KickbackAnimation());
 
         
 
@@ -81,7 +82,7 @@ public class ShooterManager : MonoBehaviour
 
         //dir entre player et mousePos
         Vector3 shotDirection;
-        Debug.Log((mousePosition - muzzle.transform.position).magnitude);
+
         if ((mousePosition - muzzle.transform.position).magnitude < 0.35f)
             shotDirection = (mousePosition - this.transform.position).normalized;
         else
@@ -119,12 +120,21 @@ public class ShooterManager : MonoBehaviour
 
     IEnumerator KickbackAnimation()
     {
-        float speed = gunKickbackAnimationCurve.Evaluate(time);
-        time += Time.deltaTime; 
 
-        
+        Vector3 originPosGun = transform.localPosition;
+        bool tempIsFlipped = isFlipped;
+        while(time < fireSpeed && tempIsFlipped == isFlipped) 
+        {
+            float speed = gunKickbackAnimationCurve.Evaluate(time);
+            Vector3 kickbackDirection = (muzzle.transform.position - transform.position).normalized;
+            transform.localPosition = (originPosGun - ( kickbackDirection * kickbackScale * speed));
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.localPosition = originPosGun;
+        time = 0;
 
-        yield return null;
+
     }
 }
 
