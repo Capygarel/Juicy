@@ -27,5 +27,15 @@ public class Caller : MonoBehaviour
             // Appel du shake manager avec l'impulse source 
             ShakeManager.instance.CameraShake(impulseSource);
         }
+
+
+
+        // Création d'un event random 
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 1f);
+        }
+
     }
 }
