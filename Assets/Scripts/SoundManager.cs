@@ -41,7 +41,9 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundInList(List<AudioClip> clipList, float volumeScale)
     {
+        
         int n = Random.Range(0, clipList.Count);
+        Debug.Log(clipList[n]);
         audioSource.PlayOneShot(clipList[n], volumeScale);
     }
 

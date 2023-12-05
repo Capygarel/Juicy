@@ -26,7 +26,7 @@ public class ShooterManager : MonoBehaviour
     private Vector3 offsetGunFlipped = new Vector3(-0.3f, -0.25f, 0);
     [SerializeField] private AnimationCurve gunKickbackAnimationCurve;
     [SerializeField] private float kickbackScale = 0.1f;
-    private float time = 0;
+    private float timeKickBack = 0;
 
     [SerializeField] private List<AudioClip> sound = new List<AudioClip>();
     [SerializeField] private float volume;
@@ -68,7 +68,7 @@ public class ShooterManager : MonoBehaviour
         bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
 
 
-        //SoundManager.Instance.PlaySoundInList(sound, volume);
+        SoundManager.Instance.PlaySoundInList(sound, volume);
 
 
         rechargeTime = 0;
@@ -123,16 +123,21 @@ public class ShooterManager : MonoBehaviour
 
         Vector3 originPosGun = transform.localPosition;
         bool tempIsFlipped = isFlipped;
-        while(time < fireSpeed && tempIsFlipped == isFlipped) 
+
+        while(timeKickBack < fireSpeed && tempIsFlipped == isFlipped) 
         {
-            float speed = gunKickbackAnimationCurve.Evaluate(time);
+            float speed = gunKickbackAnimationCurve.Evaluate(timeKickBack);
             Vector3 kickbackDirection = (muzzle.transform.position - transform.position).normalized;
+
             transform.localPosition = (originPosGun - ( kickbackDirection * kickbackScale * speed));
-            time += Time.deltaTime;
+
+            timeKickBack += Time.deltaTime;
+
             yield return null;
         }
+
         transform.localPosition = originPosGun;
-        time = 0;
+        timeKickBack = 0;
 
 
     }
