@@ -411,10 +411,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42096deae16e39f4f8c501237fb20314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 5920146654670638239, guid: 52d624e809adedf4b8cf23e0b5e943ab, type: 3}
-  fireSpeed: 0
-  bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
   muzzle: {fileID: 40160100}
+  particlePrefab: {fileID: 5920146654670638239, guid: 52d624e809adedf4b8cf23e0b5e943ab, type: 3}
+  douillePrefab: {fileID: 9020926259166442895, guid: 160dacd1607a7654eb4e6992508d3dd6, type: 3}
+  bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
+  fireSpeed: 0
+  gunKickbackAnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  kickbackScale: 0.1
   sound: []
   volume: 0
 --- !u!212 &286721039
@@ -1058,7 +1066,7 @@ GameObject:
   - component: {fileID: 1010351114}
   - component: {fileID: 1010351111}
   m_Layer: 0
-  m_Name: Character (1)
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
