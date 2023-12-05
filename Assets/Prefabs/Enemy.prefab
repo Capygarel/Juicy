@@ -161,5 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d810f61e1f6c54cbcd6d366147f327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   maxHp: 3
   ParticlePrefab: {fileID: 6814924391225743829, guid: 4c94257bdbfc5cf44bdcf6e77cec4ff0, type: 3}
+  moneyPrefab: {fileID: 6656604635502330885, guid: 57e0057b5b33524489baff965bcbcf68, type: 3}

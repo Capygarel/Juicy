@@ -100,7 +100,7 @@ public class ShooterManager : MonoBehaviour
     void UpdateRotation()
     {
         Vector3 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
+        mousePosition.z = -0.5f;
 
 
         //dir entre player et mousePos
