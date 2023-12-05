@@ -21,8 +21,8 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] private float fireSpeed = 0.7f;
     private float rechargeTime;
 
-
-
+    [SerializeField] ParticleSystem smoke;
+    [SerializeField] float smokeDelay;
 
     private bool isFlipped = false;
     private Vector3 offsetGun = new Vector3(0.3f, -0.25f, 0);
@@ -85,8 +85,12 @@ public class ShooterManager : MonoBehaviour
         douille.transform.position = transform.position;
         douille.GetComponent<Douille>().isFlipped = isFlipped;
 
+        
+
 
         StartCoroutine(PlaySound());
+
+        StartCoroutine(PlaySmoke());
         
 
 
@@ -141,9 +145,19 @@ public class ShooterManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(sound[0], volumeFire, UnityEngine.Random.Range(1f, 1.5f));
 
-        yield return new WaitForSeconds(sound[0].length );
+
+        yield return new WaitForSeconds(sound[0].length  );
+
 
         SoundManager.Instance.PlaySound(sound[1], volumeReload, 1.2f);
+
+    }
+
+    IEnumerator PlaySmoke()
+    {
+        yield return new WaitForSeconds (smokeDelay);
+
+        smoke.Play();
     }
 
     IEnumerator KickbackAnimation()
