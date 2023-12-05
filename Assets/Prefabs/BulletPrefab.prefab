@@ -262,5 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f7803c910c1fd841961a2fb42dbe6ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackForce: 600
   hurtParticlePrefab: {fileID: 6985207177766478922, guid: 3fdae07875b41fc40b6d1d8988a20ab6, type: 3}
   impactParticlePrefab: {fileID: 3504725351507887078, guid: dbdb8b1ce99a9ee4c820757078c1f7a4, type: 3}
