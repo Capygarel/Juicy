@@ -416,6 +416,8 @@ MonoBehaviour:
   douillePrefab: {fileID: 9020926259166442895, guid: 160dacd1607a7654eb4e6992508d3dd6, type: 3}
   bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
   fireSpeed: 0
+  smoke: {fileID: 9172836238310328181, guid: 481158b1b1159d4458608c3d2cd14cd8, type: 3}
+  smokeDelay: 0
   gunKickbackAnimationCurve:
     serializedVersion: 2
     m_Curve: []
@@ -424,7 +426,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   kickbackScale: 0.1
   impulseSource: {fileID: 0}
-  sound: []
+  sound:
+  - {fileID: 8300000, guid: df4ce5161ac8ce9438b8b8cc629cc61d, type: 3}
   volumeFire: 0
   volumeReload: 0
 --- !u!212 &286721039
@@ -3730,10 +3733,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104d5dfc50e4bdd4fab7673bac2602cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.6595486
+      outSlope: 1.6595486
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.87107813
+    - serializedVersion: 3
+      time: 0.06689149
+      value: 0.26646107
+      inSlope: 1.2655995
+      outSlope: 1.2655995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.8352015
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  decelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   marcheParticlePrefab: {fileID: 4089203931448529861, guid: 27066c9fac552a540991309a69d12dbb, type: 3}
   marcheParticle: {fileID: 0}
   marcheParticleSpawnPoint: {fileID: 1333134412}
-  speed: 20
+  speed: 50
+  acceleration: 0
+  deceleration: 0
 --- !u!212 &1010351112
 SpriteRenderer:
   m_ObjectHideFlags: 0

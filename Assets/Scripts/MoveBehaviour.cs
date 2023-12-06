@@ -1,7 +1,9 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class MoveBehaviour : MonoBehaviour
 {
+    [SerializeField] private AnimationCurve accelerationCurve, decelerationCurve;
     [SerializeField] private GameObject marcheParticlePrefab;
     [SerializeField] private GameObject marcheParticle;
 
@@ -10,11 +12,16 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    [SerializeField] private float acceleration, deceleration;
+
+    private Vector3 previousVelocity;
+
     Vector2 moveDirection;
 
     void Start()
     {
-
+        deceleration = 0;
+        acceleration = 0;
     }
 
     private void Update()
@@ -30,13 +37,40 @@ public class MoveBehaviour : MonoBehaviour
 
     private void Move()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Lerp(0, moveDirection.x * speed, 0.7f),
-                                     Mathf.Lerp(0, moveDirection.y * speed, 0.7f));
-        if (marcheParticle == null && GetComponent<Rigidbody2D>().velocity.magnitude > 10f)
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        if (marcheParticle == null && GetComponent<Rigidbody2D>().velocity.magnitude > 8f)
         {
             marcheParticle = Instantiate(marcheParticlePrefab);
             marcheParticle.transform.position = marcheParticleSpawnPoint.position;
         }
+
+        if(moveDirection.magnitude > 0.1f)
+        {
+            deceleration = 0;
+            acceleration += Time.deltaTime;
+            rb.velocity = rb.velocity * Time.deltaTime;
+            rb.velocity += new Vector2(moveDirection.x, moveDirection.y) * Time.deltaTime * accelerationCurve.Evaluate(acceleration) * 10 * speed;
+        }
+        else
+        {
+            if (acceleration != 0)
+            { 
+                deceleration = decelerationCurve[decelerationCurve.length - 1].time - accelerationCurve.Evaluate(acceleration);
+                previousVelocity = rb.velocity;
+            }
+            deceleration += Time.deltaTime;
+            acceleration = 0;
+            Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
+            rb.velocity = previousVelocity * decelerationCurve.Evaluate(deceleration);
+        }
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity *= Time.deltaTime;
     }
 
     void FixedUpdate()
