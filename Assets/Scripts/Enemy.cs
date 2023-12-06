@@ -15,9 +15,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, pitchDeath;
 
+    private Animator animator;
+
     private void Start()
     {
         hp = maxHp;
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -34,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        animator.SetTrigger("IsHurted");
         float pitch = Random.Range(rangePitchLowHit, rangePitchHighHit);
         
         hp -= damage;
