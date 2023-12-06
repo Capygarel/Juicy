@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5816247060326545720
+--- !u!1 &2002708359944118092
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6941945981345822551}
-  - component: {fileID: 7449529183405923135}
+  - component: {fileID: 3245955291323363685}
+  - component: {fileID: 273993803361178147}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: GunShotSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6941945981345822551
+--- !u!4 &3245955291323363685
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816247060326545720}
+  m_GameObject: {fileID: 2002708359944118092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2545524, y: -0.13385871, z: -0.01592967}
+  m_LocalPosition: {x: 8.126455, y: -0.07845831, z: -0.3425572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &7449529183405923135
+--- !u!82 &273993803361178147
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816247060326545720}
+  m_GameObject: {fileID: 2002708359944118092}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf9bf6e068a69d44397e488e6228ec09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b96496cb0c6ce048b669e57993c00a2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

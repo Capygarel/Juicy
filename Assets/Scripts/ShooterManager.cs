@@ -39,7 +39,7 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] CinemachineImpulseSource impulseSource;
 
 
-    [SerializeField] private List<AudioClip> sound = new List<AudioClip>();
+    [SerializeField] private List<AudioSource> sound = new List<AudioSource>();
     [SerializeField] private float volumeFire, volumeReload;
 
 
@@ -49,7 +49,7 @@ public class ShooterManager : MonoBehaviour
     {
         player = transform.parent;
         cam = Camera.main;
-        fireSpeed = sound[0].length + sound[1].length;
+        fireSpeed = sound[0].clip.length + sound[1].clip.length;
         rechargeTime = fireSpeed ;
 
         impulseSource = GetComponent<CinemachineImpulseSource>();
@@ -153,13 +153,13 @@ public class ShooterManager : MonoBehaviour
     IEnumerator PlaySound()
     {
         float pitch = UnityEngine.Random.Range(1f, 1.5f);
-        SoundManager.Instance.PlaySound(sound[0], volumeFire,pitch  );
+        SoundManager.Instance.PlaySound(sound[0], volumeFire,pitch, transform.position  );
 
 
-        yield return new WaitForSeconds(sound[0].length / pitch );
+        yield return new WaitForSeconds(sound[0].clip.length / pitch );
 
 
-        SoundManager.Instance.PlaySound(sound[1], volumeReload, 1.2f);
+        SoundManager.Instance.PlaySound(sound[1], volumeReload, 1.2f, transform.position);
 
     }
 

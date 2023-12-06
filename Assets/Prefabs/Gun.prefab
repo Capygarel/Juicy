@@ -105,6 +105,7 @@ MonoBehaviour:
   fireSpeed: 0.7
   smoke: {fileID: 0}
   smokeDelay: 0
+  muzzleFlash: {fileID: 0}
   gunKickbackAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -150,10 +151,8 @@ MonoBehaviour:
   kickbackScale: 0.1
   impulseSource: {fileID: 0}
   sound:
-  - {fileID: 8300000, guid: bf9bf6e068a69d44397e488e6228ec09, type: 3}
-  - {fileID: 8300000, guid: 155037b8504105043983ea69085f0388, type: 3}
-  - {fileID: 8300000, guid: 6c38d9e69baa24540bf7d71edb97aaf6, type: 3}
-  - {fileID: 8300000, guid: 358319ff91f31cb4d8bc3bf1293f192e, type: 3}
+  - {fileID: 273993803361178147, guid: 7e054c1fa89310b43b854eaf98416e33, type: 3}
+  - {fileID: 5873361606239886206, guid: fe62c325976b8464eba38490959563bb, type: 3}
   volumeFire: 0
   volumeReload: 0
 --- !u!1 &8973213606024091801

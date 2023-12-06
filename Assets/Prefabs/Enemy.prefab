@@ -166,18 +166,20 @@ MonoBehaviour:
   maxHp: 3
   particlePrefab: {fileID: 6814924391225743829, guid: 4c94257bdbfc5cf44bdcf6e77cec4ff0, type: 3}
   cadavrePrefab: {fileID: 3947010212786716617, guid: 96f9801312f7e2b47be2e441a7f733a3, type: 3}
+  bloodPrefab: {fileID: 4675286276734586851, guid: 29f7f1e3db5e12e4aa2e917f60e5a69c, type: 3}
   moneyPrefabs:
   - {fileID: 6656604635502330885, guid: 57e0057b5b33524489baff965bcbcf68, type: 3}
   - {fileID: 7241095715908865023, guid: 417f0c3e46d6f284889d0f328b155b77, type: 3}
-  hitSound: {fileID: 8300000, guid: b7092318d64091f40872b273be6049a7, type: 3}
-  deathSound: {fileID: 8300000, guid: 0c618265f9d776d429b5e2eaae8de494, type: 3}
-  bloodSound: {fileID: 8300000, guid: 176ddbe39deb15a4691a20f388019fc7, type: 3}
+  hitSound: {fileID: 4246495684806319676, guid: 6b72b797663f7094fb3994873a3d4a4b, type: 3}
+  deathSound: {fileID: 6295304977548431357, guid: a8ed5e82e5971e44383ba8fa2870892f, type: 3}
+  bloodSound: {fileID: 3677694956580270246, guid: c2713e8a548b53c459bfb6693ca8a8a2, type: 3}
   volumeHit: 3
   volumeDeath: 0.5
   volumeBlood: 2
   rangePitchLowHit: 0.8
   rangePitchHighHit: 1.1
-  pitchDeath: 2.5
+  rangePitchLowDeath: 0.9
+  rangePitchHighDeath: 1.2
 --- !u!95 &3710118693427284580
 Animator:
   serializedVersion: 5

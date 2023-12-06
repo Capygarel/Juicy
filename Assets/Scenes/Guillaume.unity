@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.534509
+    OrthographicSize: 4.72
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -798,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 728918489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0094903, y: 0.007288158, z: -1.8764689}
+  m_LocalPosition: {x: 0, y: 0, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1177,6 +1177,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4261427524585545461, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
+      propertyPath: sound.Array.data[0]
+      value: 
+      objectReference: {fileID: 273993803361178147, guid: 7e054c1fa89310b43b854eaf98416e33, type: 3}
+    - target: {fileID: 4261427524585545461, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
+      propertyPath: sound.Array.data[1]
+      value: 
+      objectReference: {fileID: 5873361606239886206, guid: fe62c325976b8464eba38490959563bb, type: 3}
     - target: {fileID: 7499447624955991134, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1461,7 +1469,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0b82baa800228a54a8c6ba1e48c850df, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1928,7 +1936,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
@@ -1950,7 +1958,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.534509
+  orthographic size: 4.72
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1975,7 +1983,7 @@ Transform:
   m_GameObject: {fileID: 2047253800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0094903, y: 0.007288158, z: -1.8764689}
+  m_LocalPosition: {x: 0, y: 0, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

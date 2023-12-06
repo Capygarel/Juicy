@@ -7,13 +7,13 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int maxHp;
 
-    public GameObject particlePrefab, cadavrePrefab;
+    public GameObject particlePrefab, cadavrePrefab, bloodPrefab;
 
     public List<GameObject> moneyPrefabs;
 
-    [SerializeField] AudioClip hitSound, deathSound, bloodSound;
+    [SerializeField] AudioSource hitSound, deathSound, bloodSound;
 
-    [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, pitchDeath;
+    [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, rangePitchLowDeath, rangePitchHighDeath;
 
     private bool isFlipped;
 
@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity *= 0.90f;
 
 
-        /*if(Input.GetKeyDown(KeyCode.Space)) {
+        if(Input.GetKeyDown(KeyCode.Space)) {
             Die();
-        }*/
+        }
     }
     
    
@@ -41,16 +41,18 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("IsHurted");
         float pitch = Random.Range(rangePitchLowHit, rangePitchHighHit);
-        
+        FaceHit(collision);
+
         hp -= damage;
         if (hp <= 0)
         {
-            FaceDeath(collision);
+            
             Die();
         }
         else
         {
-            SoundManager.Instance.PlaySound(hitSound, volumeHit, pitch);
+            SoundManager.Instance.PlaySound(hitSound, volumeHit, pitch, transform.position);
+
             Debug.Log(pitch);
             FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         }
@@ -58,8 +60,13 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        SoundManager.Instance.PlaySound(deathSound, volumeDeath,pitchDeath);
-        SoundManager.Instance.PlaySound(bloodSound, volumeBlood);
+
+        float pitchDeath = Random.Range(rangePitchLowDeath, rangePitchHighDeath);
+        SoundManager.Instance.PlaySound(deathSound, volumeDeath,pitchDeath, transform.position);
+        SoundManager.Instance.PlaySound(bloodSound, volumeBlood, transform.position);
+
+
+
         Instantiate(particlePrefab, transform.position, Quaternion.identity);
 
         animator.SetTrigger("IsDying");
@@ -80,10 +87,14 @@ public class Enemy : MonoBehaviour
         EnemiesManager.instance.Die(gameObject);
         GameObject cadavre = Instantiate(cadavrePrefab);
         cadavre.transform.position = transform.position;
+
+        Instantiate(bloodPrefab, transform.position, Quaternion.Euler(0,0,Random.Range(0,360)));
+
+
         cadavre.GetComponent<SpriteRenderer>().flipX = isFlipped;
     }
 
-    public void FaceDeath(Vector3 collision)
+    public void FaceHit(Vector3 collision)
     {
 
         if (collision.x < transform.position.x && !isFlipped)

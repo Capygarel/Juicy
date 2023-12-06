@@ -5,7 +5,7 @@ public class Douille : MonoBehaviour
 {
     Rigidbody2D rb;
     public bool isFlipped;
-    public AudioClip roundFallSound;
+    public AudioSource roundFallSound;
 
     [SerializeField] private float volume;
 
@@ -31,7 +31,7 @@ public class Douille : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         rb.bodyType = RigidbodyType2D.Static;
-        SoundManager.Instance.PlaySound(roundFallSound, volume );
+        SoundManager.Instance.PlaySound(roundFallSound, volume, transform.position );
         yield return new WaitForSeconds(6f);
         Destroy(gameObject);
     }
