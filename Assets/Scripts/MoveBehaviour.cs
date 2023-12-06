@@ -66,8 +66,6 @@ public class MoveBehaviour : MonoBehaviour
             acceleration = 0;
           //  Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
             rb.velocity = previousVelocity * decelerationCurve.Evaluate(deceleration);
-            
-            
         }
         // envoi de la vitesse à l'animator 
         animator.SetFloat("Speed", rb.velocity.magnitude);
