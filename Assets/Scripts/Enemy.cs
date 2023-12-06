@@ -24,10 +24,14 @@ public class Enemy : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity *= 0.90f;
 
+
         /*if(Input.GetKeyDown(KeyCode.Space)) {
             Die();
         }*/
     }
+
+    }
+   
 
     public void TakeDamage(int damage)
     {
