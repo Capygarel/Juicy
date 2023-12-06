@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
             if (collision.GetComponent<Enemy>().hp > 1 ) Instantiate(hurtParticlePrefab, transform.position, transform.rotation);
             Vector3 vectEnnemyToBullet = (collision.transform.position - transform.position).normalized;
             collision.GetComponent<Rigidbody2D>().AddForce((vectEnnemyToBullet + transform.right).normalized * knockBackForce);
-            collision.GetComponent<Enemy>().TakeDamage(1);
+            collision.GetComponent<Enemy>().TakeDamage(1, this.transform.position);
             popParticles();
         }
         if (collision.CompareTag("Wall"))

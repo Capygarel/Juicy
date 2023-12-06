@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, pitchDeath;
 
+    private bool isFlipped;
+
     private Animator animator;
 
     private void Start()
@@ -35,14 +37,17 @@ public class Enemy : MonoBehaviour
     
    
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 collision)
     {
         animator.SetTrigger("IsHurted");
         float pitch = Random.Range(rangePitchLowHit, rangePitchHighHit);
         
         hp -= damage;
         if (hp <= 0)
+        {
+            FaceDeath(collision);
             Die();
+        }
         else
         {
             SoundManager.Instance.PlaySound(hitSound, volumeHit, pitch);
@@ -75,6 +80,21 @@ public class Enemy : MonoBehaviour
         EnemiesManager.instance.Die(gameObject);
         GameObject cadavre = Instantiate(cadavrePrefab);
         cadavre.transform.position = transform.position;
+        cadavre.GetComponent<SpriteRenderer>().flipX = isFlipped;
     }
 
+    public void FaceDeath(Vector3 collision)
+    {
+
+        if (collision.x < transform.position.x && !isFlipped)
+        {
+            isFlipped = true;
+            GetComponent<SpriteRenderer>().flipX = isFlipped;
+        }
+        else if(collision.x > transform.position.x && isFlipped)
+        {
+            isFlipped = false;
+            GetComponent<SpriteRenderer>().flipX = isFlipped;
+        }
+    }
 }
