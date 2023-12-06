@@ -3714,6 +3714,7 @@ GameObject:
   - component: {fileID: 1010351115}
   - component: {fileID: 1010351114}
   - component: {fileID: 1010351111}
+  - component: {fileID: 1010351116}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -3792,6 +3793,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   marcheParticlePrefab: {fileID: 4089203931448529861, guid: 27066c9fac552a540991309a69d12dbb, type: 3}
   marcheParticle: {fileID: 0}
+  animator: {fileID: 0}
   marcheParticleSpawnPoint: {fileID: 1333134412}
   speed: 50
   acceleration: 0
@@ -3927,6 +3929,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.039475203, y: -0.08772266}
   m_Size: {x: 0.72806025, y: 1.035089}
   m_Direction: 0
+--- !u!95 &1010351116
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010351110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d53eaf82768311d4f8df99b147111d8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1169219223
 GameObject:
   m_ObjectHideFlags: 0

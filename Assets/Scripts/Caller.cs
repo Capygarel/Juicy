@@ -37,5 +37,17 @@ public class Caller : MonoBehaviour
             FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         }
 
+
+
+
+        // Création d'un event pour simuler la marche du joueur
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("je fonctionne");
+        }
+
+
+
     }
 }

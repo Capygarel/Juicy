@@ -7,6 +7,8 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private GameObject marcheParticlePrefab;
     [SerializeField] private GameObject marcheParticle;
 
+    [SerializeField] private Animator animator;
+
     [SerializeField] private Transform marcheParticleSpawnPoint;
 
     [SerializeField]
@@ -51,6 +53,10 @@ public class MoveBehaviour : MonoBehaviour
             acceleration += Time.deltaTime;
             rb.velocity = rb.velocity * Time.deltaTime;
             rb.velocity += new Vector2(moveDirection.x, moveDirection.y) * Time.deltaTime * accelerationCurve.Evaluate(acceleration) * 10 * speed;
+
+            // envoi de la vitesse à l'animator 
+            Debug.Log("Test A " + rb.velocity.magnitude);
+            animator.SetFloat("Speed", rb.velocity.magnitude);
         }
         else
         {
@@ -62,8 +68,12 @@ public class MoveBehaviour : MonoBehaviour
             }
             deceleration += Time.deltaTime;
             acceleration = 0;
-            Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
+          //  Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
             rb.velocity = previousVelocity * decelerationCurve.Evaluate(deceleration);
+            
+            // envoi de la vitesse à l'animator 
+            Debug.Log("Test B" + rb.velocity.magnitude);
+            animator.SetFloat("Speed", rb.velocity.magnitude);
         }
 
     }
