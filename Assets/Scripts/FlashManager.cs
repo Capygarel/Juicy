@@ -32,6 +32,13 @@ public class FlashManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         sprite.color = originalColor;
+
+        yield return new WaitForSeconds(duration);
+
+        sprite.color = Color.red;
+
+        yield return new WaitForSeconds(duration);
+        sprite.color = originalColor;
     }
 }
 
