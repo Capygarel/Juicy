@@ -56,7 +56,8 @@ public class MoveBehaviour : MonoBehaviour
         {
             if (acceleration != 0)
             { 
-                deceleration = decelerationCurve[decelerationCurve.length - 1].time - accelerationCurve.Evaluate(acceleration);
+                deceleration = decelerationCurve[decelerationCurve.length - 1].time -acceleration;
+                if(deceleration < 0) deceleration = 0;
                 previousVelocity = rb.velocity;
             }
             deceleration += Time.deltaTime;
