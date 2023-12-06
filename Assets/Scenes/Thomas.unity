@@ -3793,7 +3793,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   marcheParticlePrefab: {fileID: 4089203931448529861, guid: 27066c9fac552a540991309a69d12dbb, type: 3}
   marcheParticle: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 1010351116}
   marcheParticleSpawnPoint: {fileID: 1333134412}
   speed: 50
   acceleration: 0
