@@ -29,8 +29,7 @@ public class Enemy : MonoBehaviour
             Die();
         }*/
     }
-
-    }
+    
    
 
     public void TakeDamage(int damage)
