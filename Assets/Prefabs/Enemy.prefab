@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5688165641220767821}
   - component: {fileID: 1449219031039635241}
   - component: {fileID: 541441878946527120}
-  - component: {fileID: 65154450938925505}
+  - component: {fileID: 3710118693427284580}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -177,7 +177,7 @@ MonoBehaviour:
   rangePitchLowHit: 0.8
   rangePitchHighHit: 1.1
   pitchDeath: 2.5
---- !u!95 &65154450938925505
+--- !u!95 &3710118693427284580
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
