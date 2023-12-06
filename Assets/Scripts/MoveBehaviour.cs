@@ -5,7 +5,7 @@ public class MoveBehaviour : MonoBehaviour
 {
     [SerializeField] private AnimationCurve accelerationCurve, decelerationCurve;
     [SerializeField] private GameObject marcheParticlePrefab;
-    [SerializeField] private GameObject marcheParticle;
+    private GameObject marcheParticle;
 
     [SerializeField] private Animator animator;
 
