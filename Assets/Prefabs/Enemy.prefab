@@ -164,7 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   maxHp: 3
-  ParticlePrefab: {fileID: 6814924391225743829, guid: 4c94257bdbfc5cf44bdcf6e77cec4ff0, type: 3}
+  particlePrefab: {fileID: 6814924391225743829, guid: 4c94257bdbfc5cf44bdcf6e77cec4ff0, type: 3}
+  cadavrePrefab: {fileID: 3947010212786716617, guid: 96f9801312f7e2b47be2e441a7f733a3, type: 3}
   moneyPrefabs:
   - {fileID: 6656604635502330885, guid: 57e0057b5b33524489baff965bcbcf68, type: 3}
   - {fileID: 7241095715908865023, guid: 417f0c3e46d6f284889d0f328b155b77, type: 3}

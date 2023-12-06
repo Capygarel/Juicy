@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int maxHp;
 
-    public GameObject ParticlePrefab;
+    public GameObject particlePrefab, cadavrePrefab;
 
     public List<GameObject> moneyPrefabs;
 
@@ -50,17 +50,14 @@ public class Enemy : MonoBehaviour
             FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         }
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K)) Die();
-    }
 
     private void Die()
     {
-        EnemiesManager.instance.Die(gameObject);
         SoundManager.Instance.PlaySound(deathSound, volumeDeath,pitchDeath);
         SoundManager.Instance.PlaySound(bloodSound, volumeBlood);
-        Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
+        Instantiate(particlePrefab, transform.position, Quaternion.identity);
+
+        animator.SetTrigger("IsDying");
 
         GameObject currentBill;
         for(int i = 0; i < Random.Range(1, 8); i++) 
@@ -70,8 +67,14 @@ public class Enemy : MonoBehaviour
             currentBill.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-2f , 2f), Random.Range(-2f, 2f), -3f), ForceMode.Impulse);
             currentBill.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-10,10), Random.Range(-10,10), Random.Range(-10, 10)), ForceMode.Impulse);
         }
+    }
 
+    public void VraimentDeadCetteFois()
+    {
         Destroy(gameObject);
+        EnemiesManager.instance.Die(gameObject);
+        GameObject cadavre = Instantiate(cadavrePrefab);
+        cadavre.transform.position = transform.position;
     }
 
 }
