@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         animator.SetTrigger("IsHurted");
-        FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         float pitch = Random.Range(rangePitchLowHit, rangePitchHighHit);
         
         hp -= damage;
@@ -48,6 +47,7 @@ public class Enemy : MonoBehaviour
         {
             SoundManager.Instance.PlaySound(hitSound, volumeHit, pitch);
             Debug.Log(pitch);
+            FlashManager.instance.Flash(this.gameObject.GetComponent<SpriteRenderer>(), 0.15f);
         }
     }
     private void Update()
