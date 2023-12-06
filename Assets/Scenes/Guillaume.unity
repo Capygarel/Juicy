@@ -1217,9 +1217,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7740638182524359132, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740638182524359132, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
+      propertyPath: marcheParticleSpawnPoint
+      value: 
+      objectReference: {fileID: 2123832399}
     - target: {fileID: 8239119296064430227, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
       propertyPath: m_Name
-      value: Character (1)
+      value: Character
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1916,6 +1924,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &2123832399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4819564748673292441, guid: 0acb84a256b45cf438314ad8695042ff, type: 3}
+  m_PrefabInstance: {fileID: 1240666180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

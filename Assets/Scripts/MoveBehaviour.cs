@@ -41,7 +41,8 @@ public class MoveBehaviour : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        if (marcheParticle == null && GetComponent<Rigidbody2D>().velocity.magnitude > 8f)
+        Debug.Log(marcheParticle + "   " + rb.velocity.magnitude);
+        if (marcheParticle == null && rb.velocity.magnitude > 4f)
         {
             marcheParticle = Instantiate(marcheParticlePrefab);
             marcheParticle.transform.position = marcheParticleSpawnPoint.position;
