@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   douillePrefab: {fileID: 9020926259166442895, guid: 160dacd1607a7654eb4e6992508d3dd6, type: 3}
   bulletPrefab: {fileID: 8486685575288818472, guid: 6d722732ec4a0714399cf95330226cf5, type: 3}
   fireSpeed: 0.7
+  smoke: {fileID: 0}
+  smokeDelay: 0
   gunKickbackAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -146,12 +148,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   kickbackScale: 0.1
+  impulseSource: {fileID: 0}
   sound:
   - {fileID: 8300000, guid: bf9bf6e068a69d44397e488e6228ec09, type: 3}
   - {fileID: 8300000, guid: 155037b8504105043983ea69085f0388, type: 3}
   - {fileID: 8300000, guid: 6c38d9e69baa24540bf7d71edb97aaf6, type: 3}
   - {fileID: 8300000, guid: 358319ff91f31cb4d8bc3bf1293f192e, type: 3}
-  volume: 0.8
+  volumeFire: 0
+  volumeReload: 0
 --- !u!1 &8973213606024091801
 GameObject:
   m_ObjectHideFlags: 0

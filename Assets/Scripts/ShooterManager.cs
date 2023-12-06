@@ -24,12 +24,17 @@ public class ShooterManager : MonoBehaviour
     [SerializeField] ParticleSystem smoke;
     [SerializeField] float smokeDelay;
 
-    private bool isFlipped = false;
-    private Vector3 offsetGun = new Vector3(0.3f, -0.25f, 0);
-    private Vector3 offsetGunFlipped = new Vector3(-0.3f, -0.25f, 0);
+    [SerializeField] GameObject muzzleFlash;
+
     [SerializeField] private AnimationCurve gunKickbackAnimationCurve;
     [SerializeField] private float kickbackScale = 0.1f;
     private float timeKickBack = 0;
+
+
+    private bool isFlipped = false;
+    private Vector3 offsetGun = new Vector3(0.3f, -0.25f, 0);
+    private Vector3 offsetGunFlipped = new Vector3(-0.3f, -0.25f, 0);
+    
 
     [SerializeField] CinemachineImpulseSource impulseSource;
 
@@ -73,9 +78,13 @@ public class ShooterManager : MonoBehaviour
         //Instantie la balle au bout du flingue, lui indique si l'arme est flip pour qu'elle parte dans le bon sens
         Instantiate(particlePrefab, muzzle.transform.position, this.transform.rotation);
 
+
+
         bulletInstance = Instantiate(bulletPrefab, muzzle.transform.position, this.transform.rotation);
 
         bulletInstance.GetComponent<MoveForward>().isWeaponFlipped = isFlipped;
+
+        muzzleFlash.SetActive(true);
 
         ShakeManager.instance.CameraShake(impulseSource);
 
@@ -143,10 +152,11 @@ public class ShooterManager : MonoBehaviour
 
     IEnumerator PlaySound()
     {
-        SoundManager.Instance.PlaySound(sound[0], volumeFire, UnityEngine.Random.Range(1f, 1.5f));
+        float pitch = UnityEngine.Random.Range(1f, 1.5f);
+        SoundManager.Instance.PlaySound(sound[0], volumeFire,pitch  );
 
 
-        yield return new WaitForSeconds(sound[0].length  );
+        yield return new WaitForSeconds(sound[0].length / pitch );
 
 
         SoundManager.Instance.PlaySound(sound[1], volumeReload, 1.2f);

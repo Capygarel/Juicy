@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
     [SerializeField] private AudioSource audioSource, musicSource;
 
+
     //Singleton
     void Awake()
     {
@@ -20,21 +21,27 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
 
 
     //Play a clip at volumeScale, pitchModifier not working
     public void PlaySound(AudioClip clip, float volumeScale, float pitchModifier)
     {
-        float originalPitch = audioSource.pitch;
-        audioSource.pitch -= pitchModifier;
+        
+        audioSource.pitch = pitchModifier;
+
         audioSource.PlayOneShot(clip, volumeScale);
-        audioSource.pitch = originalPitch;
+
+        //StartCoroutine(ResetPitch(pitchModifier, clip));
+        
     }
 
     //Play a clip at volumeScale
     public void PlaySound(AudioClip clip, float volumeScale)
     {
+        audioSource.pitch = 1;
         audioSource.PlayOneShot(clip, volumeScale);
     }
 
@@ -68,6 +75,13 @@ public class SoundManager : MonoBehaviour
         else
             musicSource.Stop();
     }
+
+    /*IEnumerator ResetPitch(float pitchModifier, AudioClip clip)
+    {
+        yield return new WaitForSeconds(clip.length / pitchModifier);
+
+        audioSource.pitch = 1f;
+    }*/
 
 
 }

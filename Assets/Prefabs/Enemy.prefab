@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,3 +167,12 @@ MonoBehaviour:
   moneyPrefabs:
   - {fileID: 6656604635502330885, guid: 57e0057b5b33524489baff965bcbcf68, type: 3}
   - {fileID: 7241095715908865023, guid: 417f0c3e46d6f284889d0f328b155b77, type: 3}
+  hitSound: {fileID: 8300000, guid: b7092318d64091f40872b273be6049a7, type: 3}
+  deathSound: {fileID: 8300000, guid: 0c618265f9d776d429b5e2eaae8de494, type: 3}
+  bloodSound: {fileID: 8300000, guid: 176ddbe39deb15a4691a20f388019fc7, type: 3}
+  volumeHit: 3
+  volumeDeath: 0.5
+  volumeBlood: 2
+  rangePitchLowHit: 0.8
+  rangePitchHighHit: 1.1
+  pitchDeath: 2.5

@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
 
     public List<GameObject> moneyPrefabs;
 
+    [SerializeField] AudioClip hitSound, deathSound, bloodSound;
+
+    [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, pitchDeath;
+
     private void Start()
     {
         hp = maxHp;
@@ -19,17 +23,26 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity *= 0.90f;
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        hp -= damage;
-        if (hp <= 0)
-        {
+
+        /*if(Input.GetKeyDown(KeyCode.Space)) {
             Die();
-        }
+        }*/
     }
 
+    public void TakeDamage(int damage)
+    {
+
+        float pitch = Random.Range(rangePitchLowHit, rangePitchHighHit);
+        
+        hp -= damage;
+        if (hp <= 0)
+            Die();
+        else
+        {
+            SoundManager.Instance.PlaySound(hitSound, volumeHit, pitch);
+            Debug.Log(pitch);
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K)) Die();
@@ -38,6 +51,8 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         EnemiesManager.instance.Die(gameObject);
+        SoundManager.Instance.PlaySound(deathSound, volumeDeath,pitchDeath);
+        SoundManager.Instance.PlaySound(bloodSound, volumeBlood);
         Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
 
         GameObject currentBill;
