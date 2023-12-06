@@ -53,10 +53,6 @@ public class MoveBehaviour : MonoBehaviour
             acceleration += Time.deltaTime;
             rb.velocity = rb.velocity * Time.deltaTime;
             rb.velocity += new Vector2(moveDirection.x, moveDirection.y) * Time.deltaTime * accelerationCurve.Evaluate(acceleration) * 10 * speed;
-
-            // envoi de la vitesse à l'animator 
-            Debug.Log("Test A " + rb.velocity.magnitude);
-            animator.SetFloat("Speed", rb.velocity.magnitude);
         }
         else
         {
@@ -71,10 +67,10 @@ public class MoveBehaviour : MonoBehaviour
           //  Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
             rb.velocity = previousVelocity * decelerationCurve.Evaluate(deceleration);
             
-            // envoi de la vitesse à l'animator 
-            Debug.Log("Test B" + rb.velocity.magnitude);
-            animator.SetFloat("Speed", rb.velocity.magnitude);
+            
         }
+        // envoi de la vitesse à l'animator 
+        animator.SetFloat("Speed", rb.velocity.magnitude);
 
     }
 
