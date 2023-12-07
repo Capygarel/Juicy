@@ -25,15 +25,20 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            wilhelm = true;
+            Die();
+        }
+    }
+
     private void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity *= 0.90f;
 
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            wilhelm = true;
-            Die();
-        }
     }
     
    
