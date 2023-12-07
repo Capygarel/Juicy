@@ -11,11 +11,11 @@ public class Enemy : MonoBehaviour
 
     public List<GameObject> moneyPrefabs;
 
-    [SerializeField] AudioSource hitSound, deathSound, bloodSound;
+    [SerializeField] AudioSource hitSound, deathSound, bloodSound, alternativeDeathSound;
 
     [SerializeField] float volumeHit, volumeDeath, volumeBlood, rangePitchLowHit, rangePitchHighHit, rangePitchLowDeath, rangePitchHighDeath;
 
-    private bool isFlipped;
+    private bool isFlipped, wilhelm;
 
     private Animator animator;
 
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
 
 
         if(Input.GetKeyDown(KeyCode.Space)) {
+            wilhelm = true;
             Die();
         }
     }
@@ -62,7 +63,13 @@ public class Enemy : MonoBehaviour
     {
 
         float pitchDeath = Random.Range(rangePitchLowDeath, rangePitchHighDeath);
-        SoundManager.Instance.PlaySound(deathSound, volumeDeath,pitchDeath, transform.position);
+
+        if (!wilhelm)
+            SoundManager.Instance.PlaySound(deathSound, volumeDeath, pitchDeath, transform.position);
+        else
+            SoundManager.Instance.PlaySound(alternativeDeathSound, volumeDeath, transform.position);
+        
+
         SoundManager.Instance.PlaySound(bloodSound, volumeBlood, transform.position);
 
 

@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5035908358619010482}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   marcheParticlePrefab: {fileID: 4089203931448529861, guid: 27066c9fac552a540991309a69d12dbb, type: 3}
   animator: {fileID: 5035908358619010482}
   marcheParticleSpawnPoint: {fileID: 3484016087287663859}
-  speed: 5
+  speed: 30
   acceleration: 0
   deceleration: 0
 --- !u!95 &5035908358619010482
@@ -536,11 +536,11 @@ PrefabInstance:
     - target: {fileID: 6148214030257711930, guid: 4f64780c4557e2646b0770c87d3f9624, type: 3}
       propertyPath: sound.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 1b96496cb0c6ce048b669e57993c00a2, type: 3}
+      objectReference: {fileID: 273993803361178147, guid: 7e054c1fa89310b43b854eaf98416e33, type: 3}
     - target: {fileID: 6148214030257711930, guid: 4f64780c4557e2646b0770c87d3f9624, type: 3}
       propertyPath: sound.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 24360f8cd954c464e8813c759e51598d, type: 3}
+      objectReference: {fileID: 5873361606239886206, guid: fe62c325976b8464eba38490959563bb, type: 3}
     - target: {fileID: 6148214030257711930, guid: 4f64780c4557e2646b0770c87d3f9624, type: 3}
       propertyPath: sound.Array.data[2]
       value: 
@@ -628,15 +628,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_ImpulseShape: 1
+    m_ImpulseShape: 0
     m_CustomImpulseShape:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_ImpulseDuration: 0.2
-    m_ImpulseType: 1
+    m_ImpulseType: 0
     m_DissipationRate: 0.5
     m_RawSignal: {fileID: 0}
     m_AmplitudeGain: 1
@@ -666,4 +684,4 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.1, y: -0.1, z: 0}
+  m_DefaultVelocity: {x: -0.15, y: 0.14, z: 0.09}
