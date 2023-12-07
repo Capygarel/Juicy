@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
         current.volume = volumeScale;
         current.Play();
 
-        Destroy(current, current.clip.length);
+        Destroy(current.gameObject, current.clip.length);
 
         //StartCoroutine(ResetPitch(pitchModifier, clip));
 
@@ -55,7 +55,7 @@ public class SoundManager : MonoBehaviour
         current.volume = volumeScale;
         current.Play();
 
-        Destroy(current, current.clip.length);
+        Destroy(current.gameObject, current.clip.length);
     }
 
     /*public void PlaySoundInList(List<AudioClip> clipList, float volumeScale, float pitchModifier)
