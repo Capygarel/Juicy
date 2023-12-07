@@ -149,3 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRange: 2
   speed: 10
+  volume: 5
+  fallSound: {fileID: 7075410673395428548, guid: a274df403ab2fa24ea88c374d6f614b2, type: 3}

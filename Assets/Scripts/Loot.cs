@@ -8,9 +8,11 @@ public class Loot : MonoBehaviour
     // Start is called before the first frame update
 
     GameObject player;
-    [SerializeField] float pickupRange, speed;
+    [SerializeField] float pickupRange, speed, volume;
 
-    private bool isFollowing = false;
+    private bool isFollowing = false, fell = false;
+
+    [SerializeField] AudioSource fallSound;
 
     void Start()
     {
@@ -36,6 +38,17 @@ public class Loot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(!fell && collision.gameObject.tag == "Ground")
+        {
+            SoundManager.Instance.PlaySound(fallSound, volume, Random.Range(0.8f,1.2f), transform.position);
+            fell = true;
+
+        }
+        
     }
 }
 

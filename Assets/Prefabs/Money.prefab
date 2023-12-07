@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupRange: 2
   speed: 10
+  volume: 15
+  fallSound: {fileID: 4580757723344151758, guid: dfc23583bc88da949b0899865634ba84, type: 3}
 --- !u!54 &5029761290858776722
 Rigidbody:
   m_ObjectHideFlags: 0
