@@ -7,6 +7,10 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private GameObject marcheParticlePrefab;
     private GameObject marcheParticle;
 
+    [SerializeField] private AudioSource walkSound;
+
+    private bool isWalking;
+
     [SerializeField] private Animator animator;
 
     [SerializeField] private Transform marcheParticleSpawnPoint;
@@ -14,7 +18,7 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    [SerializeField] private float acceleration, deceleration;
+    [SerializeField] private float acceleration, deceleration, volumeWalk;
 
     private Vector3 previousVelocity;
 
@@ -24,11 +28,13 @@ public class MoveBehaviour : MonoBehaviour
     {
         deceleration = 0;
         acceleration = 0;
+        
     }
 
     private void Update()
     {
         TakeInputs();
+        walkSound.volume = volumeWalk;
     }
 
 
@@ -52,6 +58,12 @@ public class MoveBehaviour : MonoBehaviour
             acceleration += Time.deltaTime;
             rb.velocity = rb.velocity * Time.deltaTime;
             rb.velocity += new Vector2(moveDirection.x, moveDirection.y) * Time.deltaTime * accelerationCurve.Evaluate(acceleration) * 10 * speed;
+            if (!isWalking)
+            {
+                isWalking = true;
+                walkSound.Play();
+            }
+
         }
         else
         {
@@ -61,6 +73,11 @@ public class MoveBehaviour : MonoBehaviour
                 if(deceleration < 0) deceleration = 0;
                 previousVelocity = rb.velocity;
             }
+            if(isWalking)
+            {
+                isWalking = false;
+                walkSound.Stop();
+            }
             deceleration += Time.deltaTime;
             acceleration = 0;
           //  Debug.Log(deceleration + "  " +decelerationCurve.Evaluate(deceleration));
@@ -68,6 +85,7 @@ public class MoveBehaviour : MonoBehaviour
         }
         // envoi de la vitesse à l'animator 
         animator.SetFloat("Speed", rb.velocity.magnitude);
+
 
     }
 
